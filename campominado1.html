@@ -1,0 +1,44 @@
+
+<!DOCTYPE >
+<html lamg="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Campo Minado</title>
+<style>
+  body { font-family: Arial, sans-serif; background: #222;
+   color: #fff; text-align: center;  }
+  <canvas> {background: #888; cursor: pointer; } 
+   #info { font-size: 22px; margin: 10px; }
+</style>
+</head>
+<body>
+<h1>campo Minado</h1>
+<!-- PASSO 1 -->
+ <div id="info"></div>
+<canvas id="tela"></canvas>
+<p>Clique: abrir | Botao direito: bandeira | R: reiniciar</p>
+<script>
+// ===== PASSO 2: configurar =====
+const canvas = document.getElementById("tela");
+const ctx = canvas.getContext("2d");
+const info = document.getElementById("info");
+const LINHAS = 10;
+const COLUNAS = 10;
+const MINAS = 12;
+const TAM = 40;
+canvas.width = COLUNAS * TAM;
+canvas.height = LINHAS * TAM;
+let grade = [];
+let fimdejogo = false;
+let venceu = false;
+let primeiroClique = true;
+const CORES = ["", "blue", "green", "red", "navy",
+ "brown", "teal", "black", "gray"];
+ function novoQuadro() {
+    return {
+     mina: false,
+     aberta:false,
+     bandeira:false,
+     vizinhas:0,
+    }
+ }
